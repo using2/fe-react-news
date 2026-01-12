@@ -1,5 +1,7 @@
+import NewsStandPage from '@/pages/NewsStand';
+
 function App() {
-  return <div className="text-text-strong">hi</div>;
+  return <NewsStandPage />;
 }
 
 export default App;
