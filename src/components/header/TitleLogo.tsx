@@ -1,6 +1,6 @@
 const TitleLogo = () => {
   return (
-    <div className='flex justify-start items-center absolute left-[175px] top-[58px] gap-2'>
+    <div className='flex justify-start items-center gap-2'>
       <svg
         width={24}
         height={24}
