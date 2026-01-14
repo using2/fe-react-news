@@ -8,6 +8,7 @@ const RollingNews = () => {
   const countHeadline = NEWS_HEADLINE_DATAS.length;
 
   useEffect(() => {
+    // useRef 활용
     const leftTimerId = setTimeout(() => {
       setLeftIndex((idx) => (idx + 2) % countHeadline);
       const rightTimerId = setTimeout(() => {
