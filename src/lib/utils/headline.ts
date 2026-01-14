@@ -1,9 +1,5 @@
 import headlineNewsData from '@/assets/data/headlineNewsData.json' assert { type: 'json' };
-
-interface Headline {
-  press: string;
-  title: string;
-}
+import { type Headline } from '@/types/news';
 
 export function getHeadline() {
   const headlines: Headline[] = [];

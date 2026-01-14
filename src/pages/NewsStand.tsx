@@ -1,5 +1,5 @@
 import Headers from '@/components/header/Header';
-import RollingNews from '@/components/RollingNews';
+import RollingNews from '@/components/rolling/RollingNews';
 import ContentHeader from '@/components/contentArea/ContentHeader';
 import ArrowButton from '@/components/common/ArrowButton';
 import GridView from '@/components/contentArea/grid/GridView';
