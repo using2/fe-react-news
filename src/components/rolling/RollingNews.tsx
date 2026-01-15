@@ -7,30 +7,32 @@ const RollingNews = () => {
   const [currentTarget, setCurrentTarget] = useState(-1);
 
   useEffect(() => {
-    function recursiveSettingCurTarget(length: number) {
-      // current target 변경
-      setCurrentTarget((prev) => (prev + 1) % ROLLINGBAR_LENGTH);
+    let currentIndex = 0;
+    let isMounted = true;
 
-      // 재귀함수 종료 조건
-      if (length === ROLLINGBAR_LENGTH - 1) return;
+    async function runCycle() {
+      while (isMounted) {
+        // 5초 대기 (사이클 시작 전)
+        await new Promise((resolve) => setTimeout(resolve, 5000));
 
-      // 1초 뒤 재귀 호출
-      setTimeout(() => {
-        recursiveSettingCurTarget(length + 1);
-      }, 1000);
+        // ROLLINGBAR_LENGTH만큼 반복
+        for (let i = 0; i < ROLLINGBAR_LENGTH && isMounted; i++) {
+          setCurrentTarget(currentIndex % ROLLINGBAR_LENGTH);
+          currentIndex++;
+
+          // 마지막이 아니면 1초 대기
+          if (i < ROLLINGBAR_LENGTH - 1) {
+            await new Promise((resolve) => setTimeout(resolve, 1000));
+          }
+        }
+      }
     }
 
-    function startRollingCycle() {
-      setTimeout(() => {
-        // current target 변경 재귀 함수 호출
-        recursiveSettingCurTarget(0);
+    runCycle();
 
-        // 5초 timeout 재귀 실행
-        startRollingCycle();
-      }, 5000);
-    }
-
-    startRollingCycle();
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   return (
