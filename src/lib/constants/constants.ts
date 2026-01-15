@@ -6,3 +6,8 @@ export const DIRECTION = {
 };
 
 export const NEWS_HEADLINE_DATAS = getHeadline();
+
+export const VIEW = {
+  grid: 'grid',
+  list: 'list',
+};
