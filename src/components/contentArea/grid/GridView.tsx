@@ -1,3 +1,5 @@
+import ArrowButton from '@/components/common/ArrowButton';
+
 const GridView = () => {
   const publishers = Array(24).fill(null);
 
@@ -6,6 +8,12 @@ const GridView = () => {
       {publishers.map((_, index) => (
         <GridItem key={index} />
       ))}
+      <div className='absolute top-2/5 -left-20 translate-y-1/2'>
+        <ArrowButton direction='left' />
+      </div>
+      <div className='absolute top-2/5 -right-20 translate-y-1/2'>
+        <ArrowButton direction='right' />
+      </div>
     </div>
   );
 };
