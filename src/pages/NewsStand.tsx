@@ -4,8 +4,8 @@ import ContentArea from '@/components/contentArea/ContentArea';
 
 const NewsStandPage = () => {
   return (
-    <div className='bg-white'>
-      <div className='flex flex-col mt-18 mb-20 mr-40 ml-40'>
+    <div className='bg-white min-h-screen flex flex-col'>
+      <div className='flex flex-col mt-18 mb-20 mr-44 ml-44 flex-1'>
         <Headers />
         <RollingNews />
         <ContentArea />

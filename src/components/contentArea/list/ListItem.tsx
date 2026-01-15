@@ -1,7 +1,7 @@
-import type { listPress } from '@/types/pressTypes';
+import type { press } from '@/types/pressTypes';
 
 interface ListItemProps {
-  listItem: listPress;
+  listItem: press;
 }
 
 const ListItem = ({ listItem }: ListItemProps) => {
@@ -50,7 +50,7 @@ const ListItem = ({ listItem }: ListItemProps) => {
         </div>
 
         <div className='flex flex-col flex-grow gap-4 min-w-0'>
-          {listItem.relatedArticles.map((relatedArticle) => (
+          {listItem.relatedArticles?.map((relatedArticle) => (
             <a
               key={relatedArticle.link}
               href={relatedArticle.link}
