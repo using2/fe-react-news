@@ -11,19 +11,16 @@ export interface press {
   press: string;
   logo: string;
   darkLogo: string;
+  category?: category;
+  totalPage?: string;
+  time?: string;
+  mainTitle?: string;
+  mainLink?: string;
+  mainImg?: string;
+  relatedArticles?: relatedArticle[];
 }
 
 interface relatedArticle {
   title: string;
   link: string;
-}
-
-export interface listPress extends press {
-  category: category;
-  totalPage: string;
-  time: string;
-  mainTitle: string;
-  mainLink: string;
-  mainImg: string;
-  relatedArticles: relatedArticle[];
 }
