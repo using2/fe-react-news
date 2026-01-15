@@ -1,137 +1,74 @@
+import CategoryTab from '@/components/contentArea/list/CategoryTab';
+import ListItem from '@/components/contentArea/list/ListItem';
+import ArrowButton from '@/components/common/ArrowButton';
+import type { category, listPress } from '@/types/pressTypes';
+
+const listItem: listPress = {
+  category: '종합/경제',
+  totalPage: '83',
+  logo: 'https://s.pstatic.net/static/newsstand/up/2025/0421/nsd111533869.png',
+  press: '쿠키뉴스',
+  time: '01월 07일 10:40 직접 편집',
+  mainTitle: '장동혁, 12·3 비상계엄 사과…“국민께 혼란과 불편 드려”',
+  mainLink: 'https://www.kukinews.com/article/view/kuk202601070075',
+  mainImg:
+    'https://s.pstatic.net/dthumb.phinf/?src=%22https%3A%2F%2Fs.pstatic.net%2Fstatic%2Fnewsstand%2F2026%2F0107%2Farticle_img%2Fnew_main%2F9155%2F105049_001.jpg%22&type=nf312_208&service=navermain',
+  relatedArticles: [
+    {
+      title: '코스피 사상 첫 장중 ‘4600선’ 돌파…삼전·SK하닉 ‘고공행진’',
+      link: 'https://www.kukinews.com/article/view/kuk202601070035',
+    },
+    {
+      title: '부모 상속권 박탈 ‘구하라법’…실제 법정에서 작동할까',
+      link: 'https://www.kukinews.com/article/view/kuk202601060267',
+    },
+    {
+      title: '尹 내란 재판 속도전…9일 구형·체포방해 16일 선고',
+      link: 'https://www.kukinews.com/article/view/kuk202601070066',
+    },
+    {
+      title: 'HBM4 시계 앞당겼다…삼성·SK ‘2월 승부수’, 200조 시대 열리나',
+      link: 'https://www.kukinews.com/article/view/kuk202601060236',
+    },
+    {
+      title: '지역사회 통합돌봄 전환…존립 기로에 놓인 요양병원',
+      link: 'https://www.kukinews.com/article/view/kuk202601060238',
+    },
+    {
+      title:
+        '정의선 회장, 젠슨 황과 CES서 두 번째 ‘깐부 회동’…AI 협력 강화 논의해',
+      link: 'https://www.kukinews.com/article/view/kuk202601070074',
+    },
+  ],
+  darkLogo:
+    'https://s.pstatic.net/static/newsstand/up/2025/0421/nsd111551222.png',
+};
+
 const ListView = () => {
+  const categoryList: category[] = [
+    '종합/경제',
+    '방송/통신',
+    'IT',
+    '영자지',
+    '스포츠/연예',
+    '매거진/전문지',
+    '지역',
+  ];
+
   return (
-    <div className='flex flex-col justify-start items-start bg-white'>
-      <div className='flex justify-start items-center flex-grow-0 flex-shrink-0 w-[930px] h-10 relative py-4 bg-[#f5f7f9] border border-[#d2dae0]'>
-        <div className='flex-grow-0 flex-shrink-0 w-[166px] h-10 relative bg-[#7890e7]'>
-          <div className='w-12 h-10 absolute left-[-1px] top-[-1px] bg-[#4362d0]' />
-          <div className='flex justify-start items-center w-[166px] h-10 absolute left-0 top-0 gap-2 px-4'>
-            <p className='flex-grow w-[97.77px] text-sm font-bold text-left text-white'>
-              종합/경제
-            </p>
-            <div className='flex justify-start items-center flex-grow-0 flex-shrink-0 relative gap-0.5'>
-              <p className='flex-grow-0 flex-shrink-0 text-xs font-bold text-left text-white'>
-                1
-              </p>
-              <svg
-                width={5}
-                height={11}
-                viewBox='0 0 5 11'
-                fill='none'
-                xmlns='http://www.w3.org/2000/svg'
-                className='flex-grow-0 flex-shrink-0'
-                preserveAspectRatio='none'
-              >
-                <path
-                  d='M4.23047 0H2.73047L0 10.1602H1.48828L4.23047 0Z'
-                  fill='white'
-                  fill-opacity='0.7'
-                />
-              </svg>
-              <p className='flex-grow-0 flex-shrink-0 text-xs font-bold text-left text-white/70'>
-                81
-              </p>
-            </div>
-          </div>
-        </div>
-        <div className='flex justify-start items-center flex-grow-0 flex-shrink-0 h-10 relative gap-2 px-4'>
-          <p className='flex-grow-0 flex-shrink-0 text-sm font-medium text-left text-[#879298]'>
-            방송/통신
-          </p>
-        </div>
-        <div className='flex justify-start items-center flex-grow-0 flex-shrink-0 h-10 relative gap-2 px-4'>
-          <p className='flex-grow-0 flex-shrink-0 text-sm font-medium text-left text-[#879298]'>
-            IT
-          </p>
-        </div>
-        <div className='flex justify-start items-center flex-grow-0 flex-shrink-0 h-10 relative gap-2 px-4'>
-          <p className='flex-grow-0 flex-shrink-0 text-sm font-medium text-left text-[#879298]'>
-            영자지
-          </p>
-        </div>
-        <div className='flex justify-start items-center flex-grow-0 flex-shrink-0 h-10 relative gap-2 px-4'>
-          <p className='flex-grow-0 flex-shrink-0 text-sm font-medium text-left text-[#879298]'>
-            스포츠/연예
-          </p>
-        </div>
-        <div className='flex justify-start items-center flex-grow-0 flex-shrink-0 h-10 relative gap-2 px-4'>
-          <p className='flex-grow-0 flex-shrink-0 text-sm font-medium text-left text-[#879298]'>
-            매거진/전문지
-          </p>
-        </div>
-        <div className='flex justify-start items-center flex-grow-0 flex-shrink-0 h-10 relative gap-2 px-4'>
-          <p className='flex-grow-0 flex-shrink-0 text-sm font-medium text-left text-[#879298]'>
-            지역
-          </p>
-        </div>
+    <div className='w-full flex flex-col justify-start items-start bg-white'>
+      <CategoryTab
+        categoryList={categoryList}
+        curCategory={'종합/경제'}
+        curPage={1}
+        totalPage={81}
+      />
+      <ListItem listItem={listItem} />
+      <div className='absolute top-2/5 -left-20 translate-y-1/2'>
+        <ArrowButton direction='left' />
       </div>
-      <div className='flex flex-col justify-start items-start flex-grow-0 flex-shrink-0 w-[930px] gap-4 p-6 border border-[#d2dae0]'>
-        <div className='flex justify-start items-center self-stretch flex-grow-0 flex-shrink-0 relative gap-4'>
-          <div className='flex-grow-0 flex-shrink-0 w-[53px] h-5 relative'>
-            <img
-              src='asset-35-1.png'
-              className='w-[52.5px] h-5 absolute left-[-1px] top-[-1px] object-cover'
-            />
-          </div>
-          <p className='flex-grow-0 flex-shrink-0 text-xs font-medium text-left text-[#5f6e76]'>
-            2026.01.14. 18:27 편집
-          </p>
-          <div className='flex justify-center items-center flex-grow-0 flex-shrink-0 h-6 relative gap-0.5 px-1.5 rounded-[999px] bg-[#f5f7f9] border border-[#d2dae0]'>
-            <svg
-              width={12}
-              height={12}
-              viewBox='0 0 12 12'
-              fill='none'
-              xmlns='http://www.w3.org/2000/svg'
-              className='flex-grow-0 flex-shrink-0 w-3 h-3 relative'
-              preserveAspectRatio='none'
-            >
-              <path
-                d='M9.5 6.49902H6.5V9.49902H5.5V6.49902H2.5V5.49902H5.5V2.49902H6.5V5.49902H9.5V6.49902Z'
-                fill='#879298'
-              />
-            </svg>
-            <div className='flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5 pr-1'>
-              <p className='flex-grow-0 flex-shrink-0 text-xs font-medium text-left text-[#879298]'>
-                구독하기
-              </p>
-            </div>
-          </div>
-        </div>
-        <div className='flex justify-start items-start self-stretch flex-grow-0 flex-shrink-0 gap-8'>
-          <div className='flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 w-80 relative gap-4'>
-            <img
-              src='thumbnail.png'
-              className='flex-grow-0 flex-shrink-0 w-80 h-[200px] object-none border border-[#d2dae0]'
-            />
-            <pre>
-              Failed to transform TEXT Title{'\n'}TypeError: cannot read
-              property 'className' of undefined
-            </pre>
-          </div>
-          <div className='flex flex-col justify-start items-start flex-grow relative gap-4'>
-            <p className='self-stretch flex-grow-0 flex-shrink-0 w-[530px] text-base font-medium text-left text-[#4b5966]'>
-              반려동물 수제 간식 시장 확대… 소규모 창업도 증가세
-            </p>
-            <p className='self-stretch flex-grow-0 flex-shrink-0 w-[530px] text-base font-medium text-left text-[#4b5966]'>
-              직장인 대상 ‘점심 산책 구독’ 서비스 등장… 수요 확인 단계
-            </p>
-            <p className='self-stretch flex-grow-0 flex-shrink-0 w-[530px] text-base font-medium text-left text-[#4b5966]'>
-              소상공인, 단골 관리 프로그램 도입 확대… 매출 안정화 기대
-            </p>
-            <p className='self-stretch flex-grow-0 flex-shrink-0 w-[530px] text-base font-medium text-left text-[#4b5966]'>
-              핸드메이드 굿즈 플랫폼 성장… 취미·부업 시장 동반 확대
-            </p>
-            <p className='self-stretch flex-grow-0 flex-shrink-0 w-[530px] text-base font-medium text-left text-[#4b5966]'>
-              재택근무 확산에 ‘홈 오피스’ 용품 매출 증가세
-            </p>
-            <p className='self-stretch flex-grow-0 flex-shrink-0 w-[530px] text-base font-medium text-left text-[#4b5966]'>
-              직원 복지 확대 기업 늘며 ‘조직문화 투자’ 확산
-            </p>
-            <p className='self-stretch flex-grow-0 flex-shrink-0 w-[530px] text-sm font-medium text-left text-[#879298]'>
-              서울경제 언론사에서 직접 편집한 뉴스입니다.
-            </p>
-          </div>
-        </div>
+      <div className='absolute top-2/5 -right-20 translate-y-1/2'>
+        <ArrowButton direction='right' />
       </div>
     </div>
   );
