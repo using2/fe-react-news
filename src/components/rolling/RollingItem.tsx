@@ -37,12 +37,14 @@ const RollingItem = ({ itemNumber, currentTarget }: RollingItemProps) => {
       <div
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        className='flex justify-start items-start flex-grow relative gap-4 p-4 bg-[#f5f7f9] border border-[#d2dae0] w-full'
+        className={`flex justify-start items-start flex-grow relative gap-4 p-4 bg-[#f5f7f9] border border-[#d2dae0] w-full ${isHovering && 'cursor-pointer'}`}
       >
         <p className='flex-shrink-0 text-sm font-bold text-left text-[#14212b]'>
           {NEWS_HEADLINE_DATAS[currentPressIndex].press}
         </p>
-        <p className='flex-grow text-sm font-medium text-left text-[#5f6e76]'>
+        <p
+          className={`flex-grow text-sm font-medium text-left text-[#5f6e76] ${isHovering && 'underline'}`}
+        >
           {NEWS_HEADLINE_DATAS[currentPressIndex].title}
         </p>
       </div>
