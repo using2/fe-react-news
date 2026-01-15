@@ -11,3 +11,5 @@ export const VIEW = {
   grid: 'grid',
   list: 'list',
 };
+
+export const GRID_VIEW_ITEM_COUNT = 24;
