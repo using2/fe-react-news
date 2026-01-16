@@ -38,7 +38,11 @@ const RollingNews = () => {
   return (
     <div className='flex gap-8 mb-12'>
       {Array.from({ length: ROLLINGBAR_LENGTH }, (_, i) => (
-        <RollingItem initialIndex={i} parentalCommand={i === currentTarget} />
+        <RollingItem
+          key={i}
+          initialIndex={i}
+          parentalCommand={i === currentTarget}
+        />
       ))}
     </div>
   );
