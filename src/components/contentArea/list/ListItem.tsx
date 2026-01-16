@@ -1,10 +1,23 @@
+import SubscribeButton from '@/components/common/SubscribeButton';
+import UnsubscribeButton from '@/components/common/UnsubscribeButton';
 import type { press } from '@/types/pressTypes';
+import type { viewType, filterType } from '@/types/contentHeaderTypes';
 
 interface ListItemProps {
   listItem: press;
+  setFilter: (filter: filterType) => void;
+  setView: (view: viewType) => void;
+  isSubscribed: boolean;
+  updateSubscriptions: (press: string, isSubscribe: boolean) => void;
 }
 
-const ListItem = ({ listItem }: ListItemProps) => {
+const ListItem = ({
+  listItem,
+  setView,
+  setFilter,
+  isSubscribed,
+  updateSubscriptions,
+}: ListItemProps) => {
   return (
     <div className='w-full flex flex-col gap-4 border border-[#d2dae0] p-6'>
       <div className='flex flex-wrap items-center gap-4'>
@@ -16,22 +29,24 @@ const ListItem = ({ listItem }: ListItemProps) => {
         <p className='text-xs font-medium text-[#5f6e76] shrink-0'>
           {listItem.time}
         </p>
-        <button className='flex items-center h-6 gap-0.5 px-1.5 rounded-full bg-[#f5f7f9] border border-[#d2dae0] shrink-0'>
-          <svg
-            width={12}
-            height={12}
-            viewBox='0 0 12 12'
-            fill='none'
-            xmlns='http://www.w3.org/2000/svg'
-            className='w-3 h-3'
-          >
-            <path
-              d='M9.5 6.49902H6.5V9.49902H5.5V6.49902H2.5V5.49902H5.5V2.49902H6.5V5.49902H9.5V6.49902Z'
-              fill='#879298'
-            />
-          </svg>
-          <p className='text-xs font-medium text-[#879298] pr-1'>구독하기</p>
-        </button>
+        {!isSubscribed ? (
+          <SubscribeButton
+            className='absolute group-hover:block px-3 rounded-full bg-[#f5f7f9] border border-[#d2dae0]'
+            handleSubscribe={() => {
+              updateSubscriptions(listItem.press, true);
+              setView('list');
+              setFilter('subscribe');
+            }}
+          />
+        ) : (
+          <UnsubscribeButton
+            additialnalText=' 해지하기'
+            className='absolute group-hover:block px-3 rounded-full bg-[#f5f7f9] border border-[#d2dae0]'
+            handleUnsubscribe={() => {
+              updateSubscriptions(listItem.press, false);
+            }}
+          />
+        )}
       </div>
 
       <div className='flex gap-8 min-w-0'>

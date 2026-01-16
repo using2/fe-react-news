@@ -2,24 +2,27 @@ import type { category } from '@/types/pressTypes';
 
 interface CategoryTabProps {
   categoryList: category[];
-  curCategory: category;
+  categoryState: category;
+  handleCategory: (idx: number) => void;
   curPage: number;
-  totalPage: number;
+  totalPage?: number;
 }
 
 const CategoryTab = ({
   categoryList,
-  curCategory,
+  categoryState,
+  handleCategory,
   curPage,
   totalPage,
 }: CategoryTabProps) => {
   return (
     <div className='w-full flex items-center overflow-x-auto bg-[#f5f7f9] border border-[#d2dae0] scrollbar-hide'>
-      {categoryList.map((category) => {
-        const isActive = category === curCategory;
+      {categoryList.map((category, idx) => {
+        const isActive = category === categoryState;
 
         return (
           <div
+            onClick={() => handleCategory(idx)}
             key={category}
             className={`flex-shrink-0 py-2 ${isActive ? 'bg-[#7890e7]' : ''}`}
           >
