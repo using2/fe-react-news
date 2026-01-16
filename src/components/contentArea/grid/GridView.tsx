@@ -1,14 +1,25 @@
 import { useState } from 'react';
 import ArrowButton from '@/components/common/ArrowButton';
 import { GRID_VIEW_ITEM_COUNT } from '@/lib/constants/constants';
-import type { press } from '@/types/pressTypes';
 import GridItem from '@/components/contentArea/grid/GridItem';
+import type { press } from '@/types/pressTypes';
+import type { viewType, filterType } from '@/types/contentHeaderTypes';
 
 interface GridViewProps {
   data: press[];
+  setFilter: (filter: filterType) => void;
+  setView: (view: viewType) => void;
+  subscriptions: string[];
+  updateSubscriptions: (press: string, isSubscribe: boolean) => void;
 }
 
-const GridView = ({ data }: GridViewProps) => {
+const GridView = ({
+  data,
+  setFilter,
+  setView,
+  subscriptions,
+  updateSubscriptions,
+}: GridViewProps) => {
   const [curPage, setCurPage] = useState(0);
   const pageLength = Math.ceil(data.length / GRID_VIEW_ITEM_COUNT);
 
@@ -33,7 +44,14 @@ const GridView = ({ data }: GridViewProps) => {
     <div className='h-full flex-1'>
       <div className='w-full h-full grid grid-cols-6 grid-rows-4 bg-[#d2dae0] gap-px border border-[#d2dae0]'>
         {displayItems.map((item, index) => (
-          <GridItem key={index} data={item} />
+          <GridItem
+            key={index}
+            data={item}
+            setFilter={setFilter}
+            setView={setView}
+            isSubscribed={item ? subscriptions.includes(item.press) : false}
+            updateSubscriptions={updateSubscriptions}
+          />
         ))}
       </div>
 
